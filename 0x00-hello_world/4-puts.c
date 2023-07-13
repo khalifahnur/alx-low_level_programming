@@ -4,8 +4,6 @@
  * this file is used to output the code
  * using the puts keyword 
  * that all
- *
- *
  */
 
 int main(void)
