@@ -1,29 +1,26 @@
-#include <stdio.h>
-#include "lists.h"
+#ifndef LISTS_H
+#define LISTS_H
 
 /**
- * print_list - a function ...
- * @h: the list
+ * struct list_s - singly linked list
+ * @str: string - (malloc'ed string)
+ * @len: length of the string
+ * @next: points to the next node
  *
- * Return: 1 or 0
+ * Description: singly linked list node structure
+ * for Holberton project
  */
-
-size_t print_list(const list_t *h)
+typedef struct list_s
 {
-	const list_t *ptr;
-	int cpt = 0;
+	char *str;
+	unsigned int len;
+	struct list_s *next;
+} list_t;
 
-	if (h == NULL)
-		return (0);
-	ptr = h;
-	while (ptr != NULL)
-	{
-		if (ptr->str != NULL)
-			printf("[%d] %s\n", ptr->len, ptr->str);
-		else
-			printf("[0] (nil)\n");
-		ptr = ptr->next;
-		cpt++;
-	}
-	return (cpt);
-}
+size_t print_list(const list_t *h);
+size_t list_len(const list_t *h);
+list_t *add_node(list_t **head, const char *str);
+list_t *add_node_end(list_t **head, const char *str);
+void free_list(list_t *head);
+
+#endif
